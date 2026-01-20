@@ -27,6 +27,7 @@ RUN set -eux ; \
     curl \
     git \
     mercurial \
+    nginx \
     openssh \
     openssl \
     p7zip \
@@ -41,12 +42,16 @@ RUN set -eux ; \
 ENV COMPOSER_HOME=/composer
 
 COPY php-cli.ini /usr/local/etc/php/
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY startup.sh /usr/local/bin/startup.sh
 COPY --from=build /satis /satis/
+
+RUN chmod +x /usr/local/bin/startup.sh
 
 WORKDIR /build
 
 COPY satis.json /build/satis.json
 
-ENTRYPOINT ["/satis/bin/docker-entrypoint.sh"]
+EXPOSE 3000
 
-CMD ["--ansi", "-vvv", "build", "/build/satis.json", "/build/output"]
+CMD ["/usr/local/bin/startup.sh"]
