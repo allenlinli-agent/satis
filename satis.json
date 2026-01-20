@@ -1,0 +1,8 @@
+{
+  "name": "Allen's Private Packages",
+  "homepage": "https://satis.half-orange-universe.com",
+  "description": "Private Composer repository for WordPress themes and plugins",
+  "repositories": [],
+  "require-all": true,
+  "output-html": true
+}

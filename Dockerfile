@@ -45,6 +45,8 @@ COPY --from=build /satis /satis/
 
 WORKDIR /build
 
+COPY satis.json /build/satis.json
+
 ENTRYPOINT ["/satis/bin/docker-entrypoint.sh"]
 
 CMD ["--ansi", "-vvv", "build", "/build/satis.json", "/build/output"]
