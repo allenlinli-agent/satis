@@ -12,3 +12,7 @@
 !/composer.lock
 !/LICENSE
 !/php-cli.ini
+!/satis.json
+!/nginx.conf
+!/startup.sh
+!/crontab
