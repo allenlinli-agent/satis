@@ -25,6 +25,7 @@ RUN set -eux ; \
   apk add --no-cache --upgrade \
     bash \
     curl \
+    dcron \
     git \
     mercurial \
     nginx \
@@ -44,6 +45,7 @@ ENV COMPOSER_HOME=/composer
 COPY php-cli.ini /usr/local/etc/php/
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY startup.sh /usr/local/bin/startup.sh
+COPY crontab /etc/crontabs/root
 COPY --from=build /satis /satis/
 
 RUN chmod +x /usr/local/bin/startup.sh

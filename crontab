@@ -1,0 +1,2 @@
+# Rebuild Satis repository every 6 hours
+0 */6 * * * /satis/bin/satis build /build/satis.json /build/output --quiet >> /var/log/satis-cron.log 2>&1
